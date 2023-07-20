@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 const mongodb = require("mongodb");
 const colors = require("colors");
 const cors = require('cors');
+const path = require('path')
+
+
+
 
 // Connect to MongoDB
 mongoose.connect("mongodb://127.0.0.1:27017/mern-miniProject").then(() => {
@@ -13,14 +17,9 @@ mongoose.connect("mongodb://127.0.0.1:27017/mern-miniProject").then(() => {
 const app = express();
 app.use(express.urlencoded({extended:false}));
 app.use(express.json())
-// Add CORS middleware
 
-// app.use(cors({
-//   origin: "http://localhost:3000/",
-//   methods: ["GET", "POST"],
-//   credentials: true,
-//   allowedHeaders: ["Content-Type", "Access-Control-Allow-Headers", "Authorization"]
-// }));
+
+app.use(express.static(path.join(__dirname,'public')))
 
 app.use(cors({
   origin: "http://localhost:3000/",

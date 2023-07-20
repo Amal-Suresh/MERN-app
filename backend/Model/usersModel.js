@@ -13,6 +13,9 @@ const User =mongoose.Schema({
         type:String,
         required: true
     },
+    image:{
+        type:String,
+    },
     status:{
         type:Boolean,
         default: true
